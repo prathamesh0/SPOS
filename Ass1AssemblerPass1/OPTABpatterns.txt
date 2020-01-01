@@ -1,0 +1,18 @@
+STOP 
+ADD [a-zA-Z]*,[a-zA-Z]*
+SUB [a-zA-Z]*,[a-zA-Z]*
+MULT [a-zA-Z]*,[a-zA-Z]*
+MOVER [a-zA-Z]*,[a-zA-Z]*
+MOVEM [a-zA-Z]*,[a-zA-Z]*
+COMP [a-zA-Z]*,[a-zA-Z]*
+BC [a-zA-Z]*,[a-zA-Z]*
+DIV [a-zA-Z]*,[a-zA-Z]*
+READ [a-zA-Z]*
+PRINT [a-zA-Z]*
+START [0-9]*
+END 
+ORIGIN [a-zA-Z]*
+EQU [a-zA-Z]*
+LTORG
+DC '[0-9]*'
+DS [0-9]*

@@ -1,0 +1,18 @@
+STOP 
+ADD [a-zA-Z]*,[a-zA-Z]*
+SUB [a-zA-Z]*,[a-zA-Z*
+MULT [a-zA-Z]*,[a-zA-Z*
+MOVER
+MOVEM
+COMP
+BC
+DIV
+READ
+PRINT
+START [0-9]*
+END
+ORIGIN
+EQU
+LTORG
+DC
+DS
