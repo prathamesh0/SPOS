@@ -1,0 +1,47 @@
+START 100
+A DS 3
+L1 MOVER AREG B
+ADD AREG C
+MOVEM AREG D
+D EQU A +1
+L2 PRINT D
+ORIGIN A -1
+C DC 5
+ORIGIN L2 +1
+STOP
+B DC 19
+END
+
+
+Output:
+(AD,01)(C,100)
+(DL,02)(C,3)
+(IS,04)(1)(S,5)
+(IS,01)(1)(S,4)
+(IS,05)(1)(C,D)
+(C,D)(AD,04)(S,1)+1
+(IS,10)(C,D)
+(AD,03)(S,1)-1
+(DL,01)(C,5)
+(AD,03)(S,3)+1
+(IS,00)
+(DL,01)(C,19)
+(AD,02)
+
+
+Symbol Table:
+A		100
+B		108
+C		99
+D		101
+L1		103
+L2		106
+
+
+
+Literal Table:
+
+
+
+Pool Table:
+

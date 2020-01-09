@@ -1,4 +1,4 @@
-STOP
+STOP ""
 ADD [a-zA-Z]*,[a-zA-Z]*
 SUB [a-zA-Z]*,[a-zA-Z]*
 MULT [a-zA-Z]*,[a-zA-Z]*
@@ -10,7 +10,7 @@ DIV [a-zA-Z]*,[a-zA-Z]*
 READ [a-zA-Z]*
 PRINT [a-zA-Z]*
 START [0-9]*
-END
+END ""
 ORIGIN [a-zA-Z0-9]*
 EQU [a-zA-Z]*
 LTORG
