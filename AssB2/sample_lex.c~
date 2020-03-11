@@ -1,0 +1,59 @@
+%{
+}%
+DIGIT [0-9]
+NUMBER {DIGIT}+
+REAL {DIGIT}*.{NUMBER}
+TEXT [a-Za-z]
+DATATYPE "int"|"char"|"float"|"double"|"void"|"long"
+KEYWORD "class"|"static"
+CONDITIONAL "if"|"else"|"else if"|"switch"|"case"
+ITERATIVE "for"|"while"|"do"
+PREPROCESSOR "import"[^\n]*";"
+SC ";"
+IDENTIFIER {TEXT}({DIGIT}|{TEXT}|"_")*
+NONIDENTIFIER ({DIGIT}|"_")({DIGIT}|{TEXT}|"_")*
+ARITHMETIC "+"|"-"|"*"|"/"|"%"
+LOGICAL "&&"|"||"
+UNARY "!"|"++"|"--"
+RELATIONAL "=="|">"|"<"|"<="|">="|"!="
+ACCESS "public"|"private"|"protected"
+FUNCTION {ACCESS}{KEYWORD}{DATATYPE}{IDENTIFIER}"("({DATATYPE}|{IDENTIFIER})*")"
+
+%%
+[\n\t]+ ;
+{PREPROCESSOR} {printf("%s ==> PREPROCESSOR\n", yytext);}
+{FUNCTION} {printf("%s ==> FUNCTION\n", yytext);}
+{ACCESS} {printf("%s ==> ACCESS\n", yytext);}
+{DATATYPE} {printf("%s ==> DATATYPE\n", yytext);}
+{CONDITIONAL} {printf("%s ==> CONDITIONAL\n", yytext);}
+{ITERATIVE} {printf("%s ==> ITERATIVE\n", yytext);}
+{KEYWORD} {printf("%s ==> KEYWORD\n", yytext);}
+{NUMBER} {printf("%s ==> NUMBER\n", yytext);}
+{REAL} {printf("%s ==> REAL\n", yytext);}
+{TEXT} {printf("%s ==> TEXT\n", yytext);}
+{SC} {printf("%s ==> SEMICOLON\n", yytext);}
+{IDENTIFIER} {printf("%s ==> IDENTIFIER\n", yytext);}
+{ARITHMETIC} {printf("%s ==> ARITHMETIC\n", yytext);}
+{LOGICAL} {printf("%s ==> LOGICAL\n", yytext);}
+{UNARY} {printf("%s ==> UNARY\n", yytext);}
+{RELATIONAL} {printf("%s ==> RELATIONAL\n", yytext);}
+"=" {printf("%s ==> ASSIGNMENT\n", yytext);}
+"{" {printf("%s ==> BLOCK BEGIN\n", yytext);}
+"}" {printf("%s ==> BLOCK END\n", yytext);}
+"(" {printf("%s ==> PARENTHESIS BEGIN\n", yytext);}
+")" {printf("%s ==> PARENTHESIS END\n", yytext);}
+
+%%
+
+int yywrap()
+{
+	return 1;
+}
+
+int main(int argc, char* argv[])
+{
+	yyin = fopen("sample_java.java", 'r');
+	yylex();
+	fclose(yyin);
+}
+
